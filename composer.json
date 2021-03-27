@@ -1,0 +1,14 @@
+{
+    "name": "somecoding/ordb-models",
+    "description": "This package contains the Models for the Open Recipe Database. This are Models related to Recipes.",
+    "type": "library",
+    "license": "MIT Licence",
+    "authors": [
+        {
+            "name": "Dwarfex - SomeCoding",
+            "email": "dwarfex@somecoding.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
