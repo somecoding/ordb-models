@@ -1,0 +1,6 @@
+types:
+  Recipe:
+  HowTo:
+  CreativeWork:
+  Thing:
+    parent: false
