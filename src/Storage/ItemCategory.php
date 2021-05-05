@@ -10,11 +10,17 @@ namespace OrdbModels\Storage;
  */
 class ItemCategory
 {
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
     public ?int $id = null;
 
     /**
      * @example 'Camera'
      * @var string
+     * @ORM\Column
      */
     public string $name = '';
 

@@ -14,10 +14,18 @@ use OrdbModels\ItemInterface;
  */
 class Item implements ItemInterface
 {
-
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
     public ?int $id = null;
 
+    /**
+     * @ORM\Column
+     */
     public string $uniqueIdentifierCode = '';
+
 
     public ?Product $definition = null;
 

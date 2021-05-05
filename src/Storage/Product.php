@@ -13,12 +13,36 @@ use OrdbModels\DefinitionInterface;
  */
 class Product implements DefinitionInterface
 {
-
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
     public ?int $id = null;
+
+    /**
+     * @ORM\Column
+     */
     public string $description = '';
+
+    /**
+     * @ORM\Column
+     */
     public string $name = '';
+
+    /**
+     * @ORM\Column
+     */
     public string $ean = '';
+
+    /**
+     * @ORM\Column
+     */
     public string $asin = '';
+
+    /**
+     * @ORM\Column
+     */
     public string $gs1 = '';
 
     /**
