@@ -7,26 +7,24 @@ namespace OrdbModels\Storage;
 class Storage
 {
 
-    protected int $id;
+    public ?int $id;
 
-    protected string $name;
-    protected string $description;
+    public ?string $name;
+    public ?string $description;
 
 
-    protected ?Storage $parentStorage;
+    public ?Storage $parentStorage;
     /**
      * @var Storage[]
      */
-    protected array $childStorage;
+    public array $childStorage;
 
     /**
      * @var Item[];
      */
-    protected array $storedItems;
+    public array $storedItems;
 
-    /**
-     * @var StorageCondition[]
-     */
-    protected array $storageConditions;
+    public bool $hasCooling = false;
+    public bool $hasFreezing = false;
 
 }

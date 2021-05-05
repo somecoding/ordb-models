@@ -6,13 +6,13 @@ namespace OrdbModels\Storage;
 
 class Property
 {
- protected int $id;
+    public ?int $id;
     /**
-     * @var ItemDefinition[]
+     * @var Product[]
      */
- protected array $itemDefinitions;
+    public array $itemDefinitions;
 
- protected PropertyKey $key;
- protected string $value;
+    public ?PropertyKey $key;
+    public ?string $value;
 
 }

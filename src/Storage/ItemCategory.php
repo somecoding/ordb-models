@@ -10,27 +10,27 @@ namespace OrdbModels\Storage;
  */
 class ItemCategory
 {
-    protected int $id;
+    public ?int $id;
 
     /**
      * @example 'Camera'
      * @var string
      */
-    protected string $name;
+    public string $name = '';
 
     /**
      * @example A parent ItemCategory f.e. with name 'Electronic Devices'
      * @var ItemCategory|null
      */
-    protected ?ItemCategory $parentCategory;
+    public ?ItemCategory $parentCategory;
 
     /**
      * @example Child Categories f.e. 'Video Camera' and 'Photo Camera'
      * @var null|ItemCategory[]
      */
-    protected ?array $childCategories;
+    public ?array $childCategories;
     /**
-     * @var ItemDefinition[]
+     * @var Product[]
      */
-    protected array $itemDefinitions;
+    public array $itemDefinitions;
 }
