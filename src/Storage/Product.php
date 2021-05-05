@@ -18,6 +18,8 @@ class Product implements DefinitionInterface
     public string $description = '';
     public string $name = '';
     public string $ean = '';
+    public string $asin = '';
+    public string $gs1 = '';
 
     /**
      * @var Property[]
