@@ -10,7 +10,7 @@ namespace OrdbModels\Storage;
  */
 class ItemCategory
 {
-    public ?int $id;
+    public ?int $id = null;
 
     /**
      * @example 'Camera'
@@ -22,15 +22,15 @@ class ItemCategory
      * @example A parent ItemCategory f.e. with name 'Electronic Devices'
      * @var ItemCategory|null
      */
-    public ?ItemCategory $parentCategory;
+    public ?ItemCategory $parentCategory = null;
 
     /**
      * @example Child Categories f.e. 'Video Camera' and 'Photo Camera'
      * @var null|ItemCategory[]
      */
-    public ?array $childCategories;
+    public array $childCategories = [];
     /**
      * @var Product[]
      */
-    public array $itemDefinitions;
+    public array $itemDefinitions = [];
 }

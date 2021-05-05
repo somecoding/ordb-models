@@ -6,8 +6,8 @@ namespace OrdbModels\Storage;
 
 class PropertyKey
 {
-    public ?int $id;
+    public ?int $id = null;
 
-    public ?string $name;
+    public string $name = '';
 
 }

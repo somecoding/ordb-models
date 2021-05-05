@@ -15,13 +15,13 @@ use OrdbModels\ItemInterface;
 class Item implements ItemInterface
 {
 
-    public ?int $id;
+    public ?int $id = null;
 
     public string $uniqueIdentifierCode = '';
 
-    public ?Product $definition;
+    public ?Product $definition = null;
 
-    public ?Storage $storage;
+    public ?Storage $storage = null;
 
     /**
      * @var string[]

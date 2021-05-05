@@ -22,18 +22,17 @@ class Product implements DefinitionInterface
     /**
      * @var Property[]
      */
-    public array $properties;
+    public array $properties = [];
 
     /**
      * @var Item[]
      */
-    public array $items;
+    public array $items = [];
 
     /**
      * @var ItemCategory[]
      */
-    public array $itemCategories;
-
+    public array $itemCategories = [];
 
     /**
      * @return string
