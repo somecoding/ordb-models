@@ -6,27 +6,36 @@ namespace OrdbModels\Storage;
 
 class Storage
 {
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    public ?int $id = null;
 
-    protected int $id;
+    /**
+     * @ORM\Column
+     */
+    public string $name = '';
 
-    protected string $name;
-    protected string $description;
+    /**
+     * @ORM\Column
+     */
+    public string $description = '';
 
 
-    protected ?Storage $parentStorage;
+    public ?Storage $parentStorage = null;
     /**
      * @var Storage[]
      */
-    protected array $childStorage;
+    public array $childStorage = [];
 
     /**
      * @var Item[];
      */
-    protected array $storedItems;
+    public array $storedItems = [];
 
-    /**
-     * @var StorageCondition[]
-     */
-    protected array $storageConditions;
+    public bool $hasCooling = false;
+    public bool $hasFreezing = false;
 
 }

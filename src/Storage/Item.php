@@ -4,62 +4,48 @@
 namespace OrdbModels\Storage;
 
 
-
+use OrdbModels\DefinitionInterface;
 use OrdbModels\ItemInterface;
 
 /**
- * The actual item of a ItemDefinition f.e. 'camera with unique serial no ABCDE123'
+ * The actual item of a Product(definition) f.e. 'camera with unique serial no ABCDE123'
  * Class Item
  * @package OrdbModels\Storage
  */
 class Item implements ItemInterface
 {
-
-    protected int $id;
-
-    protected string $uniqueIdentifierCode;
-
-    protected ItemDefinition $definition;
-
-    protected Storage $storage;
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    public ?int $id = null;
 
     /**
-     * @return ItemDefinition
+     * @ORM\Column
      */
-    public function getDefinition(): ItemDefinition
+    public string $uniqueIdentifierCode = '';
+
+
+    public ?Product $definition = null;
+
+    public ?Storage $storage = null;
+
+    /**
+     * @var string[]
+     */
+    public array $notes = [];
+
+    public function getDefinition(): DefinitionInterface
     {
         return $this->definition;
     }
 
-    /**
-     * @param ItemDefinition $definition
-     * @return Item
-     */
-    public function setDefinition(ItemDefinition $definition): Item
+    public function setDefinition(DefinitionInterface $definition): ItemInterface
     {
         $this->definition = $definition;
         return $this;
     }
-
-    /**
-     * @return Storage
-     */
-    public function getStorage(): Storage
-    {
-        return $this->storage;
-    }
-
-    /**
-     * @param Storage $storage
-     * @return Item
-     */
-    public function setStorage(Storage $storage): Item
-    {
-        $this->storage = $storage;
-        return $this;
-    }
-
-
 
 
 }

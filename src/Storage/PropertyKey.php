@@ -6,8 +6,16 @@ namespace OrdbModels\Storage;
 
 class PropertyKey
 {
-    protected int $id;
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    public ?int $id = null;
 
-    protected string $name;
+    /**
+     * @ORM\Column
+     */
+    public string $name = '';
 
 }
