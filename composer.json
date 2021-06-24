@@ -14,5 +14,13 @@
         "psr-4": {
             "OrdbModels\\":"src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OrdbModelsTest\\":"test/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }

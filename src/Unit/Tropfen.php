@@ -6,7 +6,7 @@ namespace OrdbModels\Unit;
 
 class Tropfen extends Unit
 {
-    protected int $conversionFactor = 1/20;
+    protected float $conversionFactor = 1/15;
     protected string $referenceUnitClass = Mililiter::class;
     protected string $shortCode = 'Tr';
 

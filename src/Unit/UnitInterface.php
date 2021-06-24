@@ -6,7 +6,7 @@ namespace OrdbModels\Unit;
 
 interface UnitInterface
 {
-    public function getConversionFactorForConversion(): int;
+    public function getConversionFactorForConversion(): float;
 
     public function getReferenceUnitClass(): string;
 

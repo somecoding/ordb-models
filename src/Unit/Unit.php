@@ -7,7 +7,7 @@ namespace OrdbModels\Unit;
 abstract class Unit implements UnitInterface
 {
     protected string $referenceUnitClass;
-    protected int $conversionFactor;
+    protected float $conversionFactor;
     protected string $shortCode;
 
     public function getReferenceUnitClass(): string
@@ -15,7 +15,7 @@ abstract class Unit implements UnitInterface
         return $this->referenceUnitClass;
     }
 
-    public function getConversionFactorForConversion():int
+    public function getConversionFactorForConversion():float
     {
         return $this->conversionFactor;
     }
@@ -24,6 +24,8 @@ abstract class Unit implements UnitInterface
     {
         return $this->shortCode;
     }
+
+
 
 
 }

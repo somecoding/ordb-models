@@ -1,0 +1,16 @@
+version: "3"
+services:
+  php-cli:
+    build:
+      context: ./docker/php-cli
+      dockerfile: Dockerfile
+      args:
+        GITHUB_TOKEN: $GITHUB_TOKEN
+        GROUP_ID: $GROUP_ID
+        USER_ID: $USER_ID
+    command: tail -F Makefile
+    volumes:
+      - ./:/var/www
+    environment:
+      - APPLICATION_ENV=development
+      - PHP_IDE_CONFIG=serverName=php-cli
