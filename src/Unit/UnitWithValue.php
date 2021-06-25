@@ -19,18 +19,20 @@ class UnitWithValue
     {
         $unitClass = $unitWithValue->unit->getReferenceUnitClass();
         $factor    = $unitWithValue->unit->getConversionFactorForConversion();
-        if ($factor == 1) {
+
+        if ($unitWithValue->unit->getConversionFactorForConversion() == 1 && get_class($unitWithValue->unit) === $unitWithValue->unit->getReferenceUnitClass()) {
             return $unitWithValue;
         }
+        $value = round($unitWithValue->count * $factor,4);
+        $unit = new UnitWithValue($value, $unitClass);
 
-
-        $unit = new UnitWithValue($unitWithValue->count * $factor, $unitClass);
-
-        if ($unit->unit->getConversionFactorForConversion() == 1) {
+        if ($unit->unit->getConversionFactorForConversion() == 1 && get_class($unit->unit) === $unit->unit->getReferenceUnitClass()) {
             return $unit;
-        } else {
-            return self::convertToBaseUnit($unit);
         }
+
+
+
+        return self::convertToBaseUnit($unit);
     }
 
 

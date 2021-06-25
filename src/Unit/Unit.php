@@ -17,7 +17,7 @@ abstract class Unit implements UnitInterface
 
     public function getConversionFactorForConversion():float
     {
-        return $this->conversionFactor;
+        return round($this->conversionFactor, 6);
     }
 
     public function getShortCode(): string

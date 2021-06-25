@@ -6,7 +6,7 @@ namespace OrdbModels\Unit;
 
 class Kubikmeter extends Unit
 {
-    protected float $conversionFactor = 1/1000;
+    protected float $conversionFactor = 1000;
     protected string $referenceUnitClass = Liter::class;
     protected string $shortCode = 'm³';
 }

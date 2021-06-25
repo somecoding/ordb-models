@@ -51,36 +51,37 @@ class UnitConvertingTest extends TestCase
         $this->assertInstanceOf($outputClass, $baseUnit->unit);
     }
 
+
     public function dataProvider(): iterable
     {
         yield Bund::class => [1, Bund::class, 1, Bund::class];
         yield Centiliter::class => [1, Centiliter::class, 10, Mililiter::class];
-        yield CupUK::class => [1, CupUK::class, 123, Mililiter::class];
-        yield CupUS::class => [1, CupUS::class, 123, Mililiter::class];
-        yield Dekagramm::class => [1, Dekagramm::class, 123, Mililiter::class];
-        yield Deziliter::class => [1, Deziliter::class, 123, Mililiter::class];
-        yield Essloeffel::class => [1, Essloeffel::class, 123, Mililiter::class];
-        yield FluidOunce::class => [1, FluidOunce::class, 123, Mililiter::class];
-        yield FluidOunceUS::class => [1, FluidOunceUS::class, 123, Mililiter::class];
-        yield Gallon::class => [1, Gallon::class, 123, Mililiter::class];
-        yield Grain::class => [1, Grain::class, 123, Mililiter::class];
-        yield Gramm::class => [1, Gramm::class, 123, Mililiter::class];
-        yield Indisdinct::class => [1, Indisdinct::class, 123, Mililiter::class];
-        yield Kilogramm::class => [1, Kilogramm::class, 123, Mililiter::class];
-        yield Kubikmeter::class => [1, Kubikmeter::class, 123, Mililiter::class];
+        yield CupUK::class => [1, CupUK::class, 250, Mililiter::class];
+        yield CupUS::class => [1, CupUS::class, 238, Mililiter::class];
+        yield Dekagramm::class => [25, Dekagramm::class, 250, Gramm::class];
+        yield Deziliter::class => [10, Deziliter::class, 1000, Mililiter::class];
+        yield Essloeffel::class => [1, Essloeffel::class, 15, Mililiter::class];
+        yield FluidOunce::class => [1, FluidOunce::class, 28, Mililiter::class];
+        yield FluidOunceUS::class => [1, FluidOunceUS::class, 28.4, Mililiter::class];
+        yield Gallon::class => [1, Gallon::class, 3800, Mililiter::class];
+        yield Grain::class => [100, Grain::class, 6.5, Gramm::class];
+        yield Gramm::class => [1, Gramm::class, 1, Gramm::class];
+        yield Indisdinct::class => [1, Indisdinct::class, 1, Indisdinct::class];
+        yield Kilogramm::class => [1, Kilogramm::class, 1000, Gramm::class];
+        yield Kubikmeter::class => [1, Kubikmeter::class, 1000000, Mililiter::class];
         yield Liter::class => [1, Liter::class, 1000, Mililiter::class];
-        yield Messerspitze::class => [1, Messerspitze::class, 123, Mililiter::class];
-        yield Mililiter::class => [1, Mililiter::class, 123, Mililiter::class];
-        yield Milligramm::class => [1, Milligramm::class, 123, Mililiter::class];
-        yield Ounce::class => [1, Ounce::class, 123, Mililiter::class];
+        yield Messerspitze::class => [2, Messerspitze::class, 0.16, Gramm::class];
+        yield Mililiter::class => [1, Mililiter::class, 1, Mililiter::class];
+        yield Milligramm::class => [1, Milligramm::class, 10, Gramm::class];
+        yield Ounce::class => [1, Ounce::class, 28.35, Gramm::class];
         yield Pfund::class => [1, Pfund::class, 500, Gramm::class];
-        yield Pint::class => [1, Pint::class, 123, Mililiter::class];
-        yield Pound::class => [1, Pound::class, 400, Gramm::class];
-        yield Prise::class => [1, Prise::class, 123, Mililiter::class];
-        yield Quart::class => [1, Quart::class, 123, Mililiter::class];
+        yield Pint::class => [2, Pint::class, 2*470, Mililiter::class];
+        yield Pound::class => [1, Pound::class, 454, Gramm::class];
+        yield Prise::class => [1, Prise::class, 0.04, Gramm::class];
+        yield Quart::class => [1, Quart::class, 950, Mililiter::class];
         yield SaltSpoont::class => [1, SaltSpoont::class, 1, Mililiter::class];
-        yield Schuss::class => [1, Schuss::class, 123, Mililiter::class];
-        yield Spritzer::class => [1, Spritzer::class, 123, Mililiter::class];
+        yield Schuss::class => [1, Schuss::class, 10, Mililiter::class];
+        yield Spritzer::class => [30, Spritzer::class, 8, Mililiter::class];
         yield Tablespoon::class => [1, Tablespoon::class, 15, Mililiter::class];
         yield Tasse::class => [1, Tasse::class, 200, Mililiter::class];
         yield TeaCup::class => [1, TeaCup::class, 190, Mililiter::class];
