@@ -6,7 +6,7 @@ namespace OrdbModels\Unit;
 
 class Ounce extends Unit
 {
-    protected float $conversionFactor = 2835/100;
+    protected string $conversionFactor = '28.35';
     protected string $referenceUnitClass = Gramm::class;
     protected string $shortCode = 'oz.';
 

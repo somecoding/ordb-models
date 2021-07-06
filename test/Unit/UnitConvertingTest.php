@@ -2,6 +2,9 @@
 
 namespace OrdbModelsTest\Unit;
 
+use Brick\Math\BigDecimal;
+use Brick\Math\BigNumber;
+use Brick\Math\BigRational;
 use OrdbModels\Unit\Bund;
 use OrdbModels\Unit\Centiliter;
 use OrdbModels\Unit\CupUK;
@@ -42,51 +45,53 @@ use PHPUnit\Framework\TestCase;
 class UnitConvertingTest extends TestCase
 {
     /** @dataProvider dataProvider */
-    public function testConvertToBaseUnit($inputValue, $inputClass, $outputValue, $outputClass)
+    public function testConvertToBaseUnit(BigNumber $inputValue, $inputClass,BigNumber $outputValue, $outputClass)
     {
         $newUnitWithValue = new UnitWithValue($inputValue, $inputClass);
         $baseUnit         = UnitWithValue::convertToBaseUnit($newUnitWithValue);
 
-        $this->assertEquals($outputValue, $baseUnit->count);
+       $comp =  $outputValue->compareTo($baseUnit->count);
+        $this->assertTrue($outputValue->isEqualTo($baseUnit->count));
+        //$this->assertEquals($outputValue, $baseUnit->count);
         $this->assertInstanceOf($outputClass, $baseUnit->unit);
     }
 
 
     public function dataProvider(): iterable
     {
-        yield Bund::class => [1, Bund::class, 1, Bund::class];
-        yield Centiliter::class => [1, Centiliter::class, 10, Mililiter::class];
-        yield CupUK::class => [1, CupUK::class, 250, Mililiter::class];
-        yield CupUS::class => [1, CupUS::class, 238, Mililiter::class];
-        yield Dekagramm::class => [25, Dekagramm::class, 250, Gramm::class];
-        yield Deziliter::class => [10, Deziliter::class, 1000, Mililiter::class];
-        yield Essloeffel::class => [1, Essloeffel::class, 15, Mililiter::class];
-        yield FluidOunce::class => [1, FluidOunce::class, 28, Mililiter::class];
-        yield FluidOunceUS::class => [1, FluidOunceUS::class, 28.4, Mililiter::class];
-        yield Gallon::class => [1, Gallon::class, 3800, Mililiter::class];
-        yield Grain::class => [100, Grain::class, 6.5, Gramm::class];
-        yield Gramm::class => [1, Gramm::class, 1, Gramm::class];
-        yield Indisdinct::class => [1, Indisdinct::class, 1, Indisdinct::class];
-        yield Kilogramm::class => [1, Kilogramm::class, 1000, Gramm::class];
-        yield Kubikmeter::class => [1, Kubikmeter::class, 1000000, Mililiter::class];
-        yield Liter::class => [1, Liter::class, 1000, Mililiter::class];
-        yield Messerspitze::class => [2, Messerspitze::class, 0.16, Gramm::class];
-        yield Mililiter::class => [1, Mililiter::class, 1, Mililiter::class];
-        yield Milligramm::class => [1, Milligramm::class, 10, Gramm::class];
-        yield Ounce::class => [1, Ounce::class, 28.35, Gramm::class];
-        yield Pfund::class => [1, Pfund::class, 500, Gramm::class];
-        yield Pint::class => [2, Pint::class, 2*470, Mililiter::class];
-        yield Pound::class => [1, Pound::class, 454, Gramm::class];
-        yield Prise::class => [1, Prise::class, 0.04, Gramm::class];
-        yield Quart::class => [1, Quart::class, 950, Mililiter::class];
-        yield SaltSpoont::class => [1, SaltSpoont::class, 1, Mililiter::class];
-        yield Schuss::class => [1, Schuss::class, 10, Mililiter::class];
-        yield Spritzer::class => [30, Spritzer::class, 8, Mililiter::class];
-        yield Tablespoon::class => [1, Tablespoon::class, 15, Mililiter::class];
-        yield Tasse::class => [1, Tasse::class, 200, Mililiter::class];
-        yield TeaCup::class => [1, TeaCup::class, 190, Mililiter::class];
-        yield Teaspoon::class => [1, Teaspoon::class, 5, Mililiter::class];
-        yield Teeloeffel::class => [1, Teeloeffel::class, 5, Mililiter::class];
-        yield Tropfen::class => [15, Tropfen::class, 1, Mililiter::class];
+        yield Bund::class => [BigDecimal::of('1'), Bund::class, BigDecimal::of('1'), Bund::class];
+        yield Centiliter::class => [BigDecimal::of('1'), Centiliter::class, BigDecimal::of('10'), Mililiter::class];
+        yield CupUK::class => [BigDecimal::of('1'), CupUK::class, BigDecimal::of('250'), Mililiter::class];
+        yield CupUS::class => [BigDecimal::of('1'), CupUS::class, BigDecimal::of('238'), Mililiter::class];
+        yield Dekagramm::class => [BigDecimal::of('25'), Dekagramm::class, BigDecimal::of('250'), Gramm::class];
+        yield Deziliter::class => [BigDecimal::of('10'), Deziliter::class, BigDecimal::of('1000'), Mililiter::class];
+        yield Essloeffel::class => [BigDecimal::of('1'), Essloeffel::class, BigDecimal::of('15'), Mililiter::class];
+        yield FluidOunce::class => [BigDecimal::of('1'), FluidOunce::class, BigDecimal::of('28'), Mililiter::class];
+        yield FluidOunceUS::class => [BigDecimal::of('1'), FluidOunceUS::class, BigDecimal::of('28.4'), Mililiter::class];
+        yield Gallon::class => [BigDecimal::of('1'), Gallon::class, BigDecimal::of('3800'), Mililiter::class];
+        yield Grain::class => [BigDecimal::of('1'), Grain::class, BigDecimal::of('0.065'), Gramm::class];
+        yield Gramm::class => [BigDecimal::of('1'), Gramm::class, BigDecimal::of('1'), Gramm::class];
+        yield Indisdinct::class => [BigDecimal::of('1'), Indisdinct::class, BigDecimal::of('1'), Indisdinct::class];
+        yield Kilogramm::class => [BigDecimal::of('1'), Kilogramm::class, BigDecimal::of('1000'), Gramm::class];
+        yield Kubikmeter::class => [BigDecimal::of('1'), Kubikmeter::class, BigDecimal::of('1000000'), Mililiter::class];
+        yield Liter::class => [BigDecimal::of('1'), Liter::class, BigDecimal::of('1000'), Mililiter::class];
+        yield Messerspitze::class => [BigDecimal::of('2'), Messerspitze::class, BigDecimal::of('0.16'), Gramm::class];
+        yield Mililiter::class => [BigDecimal::of('1'), Mililiter::class, BigDecimal::of('1'), Mililiter::class];
+        yield Milligramm::class => [BigDecimal::of('1'), Milligramm::class, BigDecimal::of('10'), Gramm::class];
+        yield Ounce::class => [BigDecimal::of('1'), Ounce::class, BigDecimal::of('28.35'), Gramm::class];
+        yield Pfund::class => [BigDecimal::of('1'), Pfund::class, BigDecimal::of('500'), Gramm::class];
+        yield Pint::class => [BigDecimal::of('2'), Pint::class, BigDecimal::of('940'), Mililiter::class];
+        yield Pound::class => [BigDecimal::of('1'), Pound::class, BigDecimal::of('454'), Gramm::class];
+        yield Prise::class => [BigDecimal::of('1'), Prise::class, BigDecimal::of('0.04'), Gramm::class];
+        yield Quart::class => [BigDecimal::of('1'), Quart::class, BigDecimal::of('950'), Mililiter::class];
+        yield SaltSpoont::class => [BigDecimal::of('1'), SaltSpoont::class, BigDecimal::of('1'), Mililiter::class];
+        yield Schuss::class => [BigDecimal::of('1'), Schuss::class, BigDecimal::of('10'), Mililiter::class];
+        yield Spritzer::class => [BigDecimal::of('1'), Spritzer::class, BigRational::of('4/15'), Mililiter::class];
+        yield Tablespoon::class => [BigDecimal::of('1'), Tablespoon::class, BigDecimal::of('15'), Mililiter::class];
+        yield Tasse::class => [BigDecimal::of('1'), Tasse::class, BigDecimal::of('200'), Mililiter::class];
+        yield TeaCup::class => [BigDecimal::of('1'), TeaCup::class, BigDecimal::of('190'), Mililiter::class];
+        yield Teaspoon::class => [BigDecimal::of('1'), Teaspoon::class, BigDecimal::of('5'), Mililiter::class];
+        yield Teeloeffel::class => [BigDecimal::of('1'), Teeloeffel::class, BigDecimal::of('5'), Mililiter::class];
+        yield Tropfen::class => [BigDecimal::of('15'), Tropfen::class, BigDecimal::of('1'), Mililiter::class];
     }
 }

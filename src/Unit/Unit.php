@@ -4,10 +4,13 @@
 namespace OrdbModels\Unit;
 
 
+use Brick\Math\BigDecimal;
+use Brick\Math\BigNumber;
+
 abstract class Unit implements UnitInterface
 {
     protected string $referenceUnitClass;
-    protected float $conversionFactor;
+    protected string $conversionFactor;
     protected string $shortCode;
 
     public function getReferenceUnitClass(): string
@@ -15,17 +18,16 @@ abstract class Unit implements UnitInterface
         return $this->referenceUnitClass;
     }
 
-    public function getConversionFactorForConversion():float
+    public function getConversionFactorForConversion(): BigNumber
     {
-        return round($this->conversionFactor, 6);
+
+        return BigDecimal::of($this->conversionFactor);
     }
 
     public function getShortCode(): string
     {
         return $this->shortCode;
     }
-
-
 
 
 }
