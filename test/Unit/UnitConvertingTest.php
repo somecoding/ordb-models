@@ -87,11 +87,14 @@ class UnitConvertingTest extends TestCase
         yield SaltSpoont::class => [BigDecimal::of('1'), SaltSpoont::class, BigDecimal::of('1'), Mililiter::class];
         yield Schuss::class => [BigDecimal::of('1'), Schuss::class, BigDecimal::of('10'), Mililiter::class];
         yield Spritzer::class => [BigDecimal::of('1'), Spritzer::class, BigRational::of('4/15'), Mililiter::class];
+        yield Spritzer::class.'2' => [BigDecimal::of('4.5'), Spritzer::class, BigRational::of('18/15'), Mililiter::class];
         yield Tablespoon::class => [BigDecimal::of('1'), Tablespoon::class, BigDecimal::of('15'), Mililiter::class];
         yield Tasse::class => [BigDecimal::of('1'), Tasse::class, BigDecimal::of('200'), Mililiter::class];
         yield TeaCup::class => [BigDecimal::of('1'), TeaCup::class, BigDecimal::of('190'), Mililiter::class];
         yield Teaspoon::class => [BigDecimal::of('1'), Teaspoon::class, BigDecimal::of('5'), Mililiter::class];
         yield Teeloeffel::class => [BigDecimal::of('1'), Teeloeffel::class, BigDecimal::of('5'), Mililiter::class];
         yield Tropfen::class => [BigDecimal::of('15'), Tropfen::class, BigDecimal::of('1'), Mililiter::class];
+        yield Tropfen::class.'2' => [BigDecimal::of('30'), Tropfen::class, BigDecimal::of('2'), Mililiter::class];
+        yield Tropfen::class.'3' => [BigDecimal::of('7.5'), Tropfen::class, BigDecimal::of('0.5'), Mililiter::class];
     }
 }

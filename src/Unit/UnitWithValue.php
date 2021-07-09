@@ -7,6 +7,8 @@ namespace OrdbModels\Unit;
 use Brick\Math\BigInteger;
 use Brick\Math\BigDecimal;
 use Brick\Math\BigNumber;
+use Brick\Math\Exception\RoundingNecessaryException;
+use Brick\Math\RoundingMode;
 
 class UnitWithValue
 {
@@ -29,9 +31,19 @@ class UnitWithValue
             return $unitWithValue;
         }
 
-        $value = $unitWithValue->count->multipliedBy($factor);
-        $unit = new UnitWithValue($value, $unitClass);
+        try {
+            $value = $unitWithValue->count->multipliedBy($factor);
+        }catch (RoundingNecessaryException $roundingNecessaryException){
+            $factor->toScale(1, RoundingMode::HALF_CEILING)->toBigDecimal();
 
+            $factor->toScale(1000, RoundingMode::HALF_CEILING)->toBigDecimal();
+            $unitWithValue->count->toScale(1000, RoundingMode::HALF_CEILING);
+
+            $value = $factor->multipliedBy($unitWithValue->count);
+
+        }
+
+        $unit = new UnitWithValue($value, $unitClass);
         if ($unit->unit->getConversionFactorForConversion()->isEqualTo($one) && get_class($unit->unit) === $unit->unit->getReferenceUnitClass()) {
             return $unit;
         }
