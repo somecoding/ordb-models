@@ -9,13 +9,16 @@ use OrdbModels\Ingredient\IngredientAmount;
 
 class Recipe
 {
-    /** @var Step[] */
-    protected array $steps;
-    protected string $description;
     protected ?string $title;
+    protected string $description;
     protected ?DateInterval $preparationTime;
     protected ?DateInterval $cookingTime;
     /** @var IngredientAmount[] */
     protected array $ingredientAmount;
+    /** @var RecipePartial[] */
+    protected array $partials;
+
+    /** @var RecipeCategory[] */
+    protected array $recipeCategories;
 
 }

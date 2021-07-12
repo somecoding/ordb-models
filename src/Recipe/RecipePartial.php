@@ -7,13 +7,17 @@ namespace OrdbModels\Recipe;
 use DateInterval;
 use OrdbModels\Ingredient\IngredientAmount;
 
-class Step
+class RecipePartial
 {
+    /** @var Step[] */
+    protected array $steps;
     protected string $description;
-    protected ?string $title;
+    protected ?string $type = null;
     protected ?DateInterval $preparationTime;
     protected ?DateInterval $cookingTime;
     /** @var IngredientAmount[] */
     protected array $ingredientAmount;
-    protected string $languageIdentifierISO;
+    /** @var RecipePartialCategory[] */
+    protected array $recipePartialCategories;
+
 }
