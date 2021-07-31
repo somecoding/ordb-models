@@ -9,11 +9,11 @@ use OrdbModels\Ingredient\IngredientAmount;
 
 class Step
 {
-    protected string $description;
-    protected ?string $title;
-    protected ?DateInterval $preparationTime;
-    protected ?DateInterval $cookingTime;
+    public string $description;
+    public ?string $title;
+    public ?DateInterval $preparationTime;
+    public ?DateInterval $cookingTime;
     /** @var IngredientAmount[] */
-    protected array $ingredientAmount;
-    protected string $languageIdentifierISO;
+    public array $ingredientAmount;
+    public string $languageIdentifierISO;
 }

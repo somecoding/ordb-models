@@ -8,7 +8,7 @@ use OrdbModels\Unit\Unit;
 
 class IngredientAmount
 {
-    protected Ingredient $ingredient;
-    protected float $amount;
-    protected Unit $unit;
+    public Ingredient $ingredient;
+    public float $amount;
+    public Unit $unit;
 }

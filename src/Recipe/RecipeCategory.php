@@ -6,7 +6,7 @@ namespace OrdbModels\Recipe;
 
 class RecipeCategory
 {
-    protected string $name;
+    public string $name;
     /** @var Recipe[]  */
-    protected array $recipePartials;
+    public array $recipePartials;
 }

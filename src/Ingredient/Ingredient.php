@@ -4,9 +4,9 @@
 namespace OrdbModels\Ingredient;
 
 
-use OrdbModels\Storage\ItemDefinition;
+use OrdbModels\Storage\Product;
 
-class Ingredient extends ItemDefinition
+class Ingredient extends Product
 {
-    protected IngredientCategory $category;
+    public IngredientCategory $category;
 }
