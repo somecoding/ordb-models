@@ -5,6 +5,7 @@ namespace OrdbModels\Storage;
 
 
 use OrdbModels\DefinitionInterface;
+use OrdbModels\TypeAttribute;
 
 /**
  * The definition of an item f.e. 'Canon EOS 750D'
@@ -48,16 +49,19 @@ class Product implements DefinitionInterface
     /**
      * @var Property[]
      */
+    #[TypeAttribute(Property::class)]
     public array $properties = [];
 
     /**
      * @var Item[]
      */
+    #[TypeAttribute(Item::class)]
     public array $items = [];
 
     /**
      * @var ItemCategory[]
      */
+    #[TypeAttribute(ItemCategory::class)]
     public array $itemCategories = [];
 
     /**

@@ -4,6 +4,8 @@
 namespace OrdbModels\Storage;
 
 
+use OrdbModels\TypeAttribute;
+
 class Property
 {
 
@@ -16,6 +18,7 @@ class Property
     /**
      * @var Product[]
      */
+    #[TypeAttribute(Product::class)]
     public array $itemDefinitions = [];
 
     public ?PropertyKey $key = null;

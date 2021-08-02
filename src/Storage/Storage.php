@@ -4,6 +4,8 @@
 namespace OrdbModels\Storage;
 
 
+use OrdbModels\TypeAttribute;
+
 class Storage
 {
     /**
@@ -28,11 +30,13 @@ class Storage
     /**
      * @var Storage[]
      */
+    #[TypeAttribute(Storage::class)]
     public array $childStorage = [];
 
     /**
      * @var Item[];
      */
+    #[TypeAttribute(Item::class)]
     public array $storedItems = [];
 
     public bool $hasCooling = false;

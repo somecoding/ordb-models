@@ -6,6 +6,7 @@ namespace OrdbModels\Recipe;
 
 use DateInterval;
 use OrdbModels\Ingredient\IngredientAmount;
+use OrdbModels\TypeAttribute;
 
 class Step
 {
@@ -14,6 +15,7 @@ class Step
     public ?DateInterval $preparationTime;
     public ?DateInterval $cookingTime;
     /** @var IngredientAmount[] */
+    #[TypeAttribute(IngredientAmount::class)]
     public array $ingredientAmount;
     public string $languageIdentifierISO;
 }

@@ -3,6 +3,9 @@
 
 namespace OrdbModels\Storage;
 
+use OrdbModels\Ingredient\IngredientAmount;
+use OrdbModels\TypeAttribute;
+
 /**
  * A Category to specifiy and group items by
  * Class ItemCategory
@@ -34,9 +37,11 @@ class ItemCategory
      * @example Child Categories f.e. 'Video Camera' and 'Photo Camera'
      * @var null|ItemCategory[]
      */
+    #[TypeAttribute(ItemCategory::class)]
     public array $childCategories = [];
     /**
      * @var Product[]
      */
+    #[TypeAttribute(Product::class)]
     public array $itemDefinitions = [];
 }
