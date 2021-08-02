@@ -8,8 +8,8 @@ use OrdbModels\TypeAttribute;
 
 class RecipePartialCategory
 {
-    public string $name;
+    public string $name = '';
     /** @var RecipePartial[]  */
     #[TypeAttribute(RecipePartial::class)]
-    public array $recipePartials;
+    public array $recipePartials = [];
 }

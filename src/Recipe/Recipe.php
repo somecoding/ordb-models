@@ -11,22 +11,22 @@ use OrdbModels\TypeAttribute;
 /** @var IngredientAmount[] */
 class Recipe
 {
-    public ?string $title;
-    public string $description;
+    public ?string $title = null;
+    public string $description = '';
 
-    public ?DateInterval $preparationTime;
-    public ?DateInterval $cookingTime;
+    public ?DateInterval $preparationTime = null;
+    public ?DateInterval $cookingTime = null;
 
     /** @var IngredientAmount[] */
     #[TypeAttribute(IngredientAmount::class)]
-    public array $ingredientAmount;
+    public array $ingredientAmount = [];
 
     /** @var RecipePartial[] */
     #[TypeAttribute(RecipePartial::class)]
-    public array $partials;
+    public array $partials = [];
 
     /** @var RecipeCategory[] */
     #[TypeAttribute(RecipeCategory::class)]
-    public array $recipeCategories;
+    public array $recipeCategories = [];
 
 }

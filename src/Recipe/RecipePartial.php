@@ -12,16 +12,16 @@ class RecipePartial
 {
     /** @var Step[] */
     #[TypeAttribute(Step::class)]
-    public array $steps;
-    public string $description;
+    public array $steps = [];
+    public string $description ='';
     public ?string $type = null;
-    public ?DateInterval $preparationTime;
-    public ?DateInterval $cookingTime;
+    public ?DateInterval $preparationTime = null;
+    public ?DateInterval $cookingTime = null;
     /** @var IngredientAmount[] */
     #[TypeAttribute(IngredientAmount::class)]
-    public array $ingredientAmount;
+    public array $ingredientAmount = [];
     /** @var RecipePartialCategory[] */
     #[TypeAttribute(RecipePartialCategory::class)]
-    public array $recipePartialCategories;
+    public array $recipePartialCategories =[];
 
 }
