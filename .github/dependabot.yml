@@ -11,7 +11,8 @@ updates:
       interval: "daily"
   # Enable version updates for Docker
   - package-ecosystem: "docker"
-    directory: "/docker/php-cli"
+    directories:
+      - "/docker/*"
     schedule:
       interval: "daily"
   # Enable version updates for Docker Compose
